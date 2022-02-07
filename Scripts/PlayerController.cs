@@ -15,6 +15,14 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         float movimiento = Input.GetAxis("Horizontal");
+        if (movimiento < 0)
+        {
+            GetComponent<SpriteRenderer>().flipX=true;
+        }
+        else if (movimiento > 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
         PlayerRB.velocity = new Vector2(movimiento * 3, PlayerRB.velocity.y);
     }
 }
