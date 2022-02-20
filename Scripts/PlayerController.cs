@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D PlayerRB;
+    Animator myAnimator;
     // Start is called before the first frame update
     void Start()
     {
         PlayerRB = GetComponent<Rigidbody2D>();
+        myAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -24,5 +26,6 @@ public class PlayerController : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = false;
         }
         PlayerRB.velocity = new Vector2(movimiento * 3, PlayerRB.velocity.y);
+        myAnimator.SetFloat("Velocidad",Mathf.Abs(movimiento));
     }
 }
